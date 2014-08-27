@@ -1,0 +1,28 @@
+{
+  "name": "parse-bearer-token",
+  "version": "0.0.0",
+  "description": "Parse a request's bearer token",
+  "keywords": [
+    "bearer",
+    "token",
+    "authorization"
+  ],
+  "author": "Stephen Mathieson <me@stephenmathieson.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stephenmathieson/node-parse-bearer-token.git"
+  },
+  "dependencies": {
+    "debug": "^1.0.4",
+    "express": "^4.8.5",
+    "mocha": "^1.21.4"
+  },
+  "devDependencies": {
+    "supertest": "^0.13.0"
+  },
+  "main": "index",
+  "scripts": {
+    "test": "make test"
+  },
+  "license": "MIT"
+}
