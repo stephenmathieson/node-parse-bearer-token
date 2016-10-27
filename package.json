@@ -12,13 +12,10 @@
     "type": "git",
     "url": "git://github.com/stephenmathieson/node-parse-bearer-token.git"
   },
-  "dependencies": {
-    "debug": "^1.0.4",
+  "devDependencies": {
+    "supertest": "^0.13.0",
     "express": "^4.8.5",
     "mocha": "^1.21.4"
-  },
-  "devDependencies": {
-    "supertest": "^0.13.0"
   },
   "main": "index",
   "scripts": {
