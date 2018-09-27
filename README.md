@@ -1,4 +1,4 @@
-# parse-bearer-token
+# parse-bearer-token [![CircleCI](https://circleci.com/gh/stephenmathieson/node-parse-bearer-token.svg?style=svg)](https://circleci.com/gh/stephenmathieson/node-parse-bearer-token)
 
 > Parse a request's bearer token.
 
