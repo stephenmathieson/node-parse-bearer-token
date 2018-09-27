@@ -1,24 +1,30 @@
-
 # parse-bearer-token
 
-  Parse a request's bearer token.
+> Parse a request's bearer token.
+
+## Installation
+
+With `npm`, do:
+
+```
+$ npm install --save parse-bearer-token
+```
 
 ## Usage
 
 ```js
+import parseBearerToken from 'parse-bearer-token'
 
-var parse = require('parse-bearer-token');
-
-app.get('/foo', function (req, res, next) {
-  var token = parse(req);
+app.get('/foo', (req, res, next) => {
+  const token = parseBearerToken(req)
   if (!token) {
-    var error = new Error('missing token');
-    error.status = 401;
-    return next(error);
+    const error = new Error('missing token')
+    error.statusCode = 401
+    return next(err)
   }
 
-  res.status(200).send('secrets!');
-});
+  res.send('secrets!')
+})
 ```
 
 ## License
