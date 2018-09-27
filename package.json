@@ -8,18 +8,60 @@
     "authorization"
   ],
   "author": "Stephen Mathieson <me@stephenmathieson.com>",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/stephenmathieson/node-parse-bearer-token.git"
+  "repository": "stephenmathieson/node-parse-bearer-token",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "echo '// CommonJS support\\nmodule.exports = parseBearerToken' >> dist/index.js",
+    "prepublishOnly": "npm run build",
+    "fmt": "prettier --write *.json *.md src/*.ts",
+    "lint": "tslint --project tsconfig.json --format codeFrame src/*.ts",
+    "test": "ava src/test.ts"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "tslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   },
   "devDependencies": {
-    "supertest": "^0.13.0",
+    "@types/node": "^10.11.1",
+    "ava": "^1.0.0-beta.8",
     "express": "^4.8.5",
-    "mocha": "^1.21.4"
-  },
-  "main": "index",
-  "scripts": {
-    "test": "make test"
-  },
-  "license": "MIT"
+    "husky": "^1.0.1",
+    "lint-staged": "^7.3.0",
+    "mocha": "^1.21.4",
+    "prettier": "^1.14.3",
+    "supertest": "^0.13.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.1"
+  }
 }
