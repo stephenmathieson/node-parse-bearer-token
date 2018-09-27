@@ -8,7 +8,7 @@ defaults: &defaults
 restore_dependency_cache: &restore_dependency_cache
   restore_cache:
     keys:
-      - v1-npm-cache-{{ checksum "package-lock.json" }}
+      - v1-npm-cache-{{ checksum "package.json" }}
       - v1-npm-cache-
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
       - <<: *restore_dependency_cache
       - run: npm install
       - save_cache:
-          key: v1-npm-cache-{{ checksum "package-lock.json" }}
+          key: v1-npm-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
   tests:
