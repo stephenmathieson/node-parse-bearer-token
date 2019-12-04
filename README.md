@@ -27,6 +27,14 @@ app.get('/foo', (req, res, next) => {
 })
 ```
 
+### CommonJS
+
+In a CommonJS environment, you'll need to explicitly take the `default` export:
+
+```js
+var parseBearerToken = require('parse-bearer-token').default
+```
+
 ## License
 
 (The MIT License)
